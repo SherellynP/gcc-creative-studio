@@ -45,7 +45,9 @@ class TestGetSetting:
     """Tests for SystemSettingsService.get_setting."""
 
     @pytest.mark.anyio
-    async def test_found(self, settings_service, mock_settings_repo, mock_setting):
+    async def test_found(
+        self, settings_service, mock_settings_repo, mock_setting
+    ):
         mock_settings_repo.get_by_id.return_value = mock_setting
 
         result = await settings_service.get_setting("show_gemini_omni")
@@ -61,7 +63,9 @@ class TestGetSetting:
             await settings_service.get_setting("non_existent")
 
         assert exc_info.value.status_code == 404
-        assert "System setting 'non_existent' not found." in exc_info.value.detail
+        assert (
+            "System setting 'non_existent' not found." in exc_info.value.detail
+        )
 
 
 class TestGetFeatureFlags:
@@ -106,14 +110,18 @@ class TestUpdateSetting:
     """Tests for SystemSettingsService.update_setting."""
 
     @pytest.mark.anyio
-    async def test_success(self, settings_service, mock_settings_repo, mock_setting):
+    async def test_success(
+        self, settings_service, mock_settings_repo, mock_setting
+    ):
         # Setup mock returns
         mock_settings_repo.get_by_id.return_value = mock_setting
         updated_setting = mock_setting.model_copy(update={"value": "true"})
         mock_settings_repo.update.return_value = updated_setting
 
         # Action
-        result = await settings_service.update_setting("show_gemini_omni", "true")
+        result = await settings_service.update_setting(
+            "show_gemini_omni", "true"
+        )
 
         # Assertions
         assert result.value == "true"

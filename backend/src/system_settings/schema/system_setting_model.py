@@ -45,8 +45,11 @@ class SystemSetting(Base):
 class SystemSettingModel(BaseStringDocument):
     """Pydantic model representing a system setting."""
 
-    id: str = Field(description="The key of the setting (e.g. show_gemini_omni).")
+    id: str = Field(
+        description="The key of the setting (e.g. show_gemini_omni)."
+    )
     value: str = Field(description="The value of the setting as a string.")
     description: str | None = Field(
-        default=None, description="Optional description of what the setting does."
+        default=None,
+        description="Optional description of what the setting does.",
     )

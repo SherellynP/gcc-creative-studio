@@ -828,8 +828,10 @@ def test_process_vto_in_background_sync(
 
         mock_sa_repo.get_by_id.side_effect = get_by_id_side_effect
 
-        mock_gcs = AsyncMock()
+        mock_gcs = MagicMock()
         mock_gcs.bucket_name = "test-bucket"
+        mock_gcs.download_bytes_from_gcs.return_value = b"fake_bytes"
+        mock_gcs.store_to_gcs.return_value = "gs://bucket/output_vto.png"
         mock_gcs_class.return_value = mock_gcs
 
         # Call
@@ -1068,8 +1070,10 @@ def test_process_vto_in_background_sync_media_item(
         top_asset.gcs_uri = "gs://bucket/garment.png"
         mock_sa_repo.get_by_id.return_value = top_asset
 
-        mock_gcs = AsyncMock()
+        mock_gcs = MagicMock()
         mock_gcs.bucket_name = "test-bucket"
+        mock_gcs.download_bytes_from_gcs.return_value = b"fake_bytes"
+        mock_gcs.store_to_gcs.return_value = "gs://bucket/output_vto.png"
         mock_gcs_class.return_value = mock_gcs
 
         # Call
