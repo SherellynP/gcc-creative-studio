@@ -46,17 +46,6 @@ class GenerationModelEnum(str, Enum):
 
     # Image-Specific Models
     IMAGEN_4_UPSCALE_PREVIEW = "imagen-4.0-upscale-preview"
-    IMAGEN_4_001 = "imagen-4.0-generate-001"
-    IMAGEN_4_ULTRA = "imagen-4.0-ultra-generate-001"
-    IMAGEN_4_ULTRA_PREVIEW = "imagen-4.0-ultra-generate-preview-06-06"
-    IMAGEN_4_FAST = "imagen-4.0-fast-generate-001"
-    IMAGEN_4_FAST_PREVIEW = "imagen-4.0-fast-generate-preview-06-06"
-    IMAGEN_3_001 = "imagen-3.0-generate-001"
-    IMAGEN_3_FAST = "imagen-3.0-fast-generate-001"
-    IMAGEN_3_002 = "imagen-3.0-generate-002"
-    IMAGEGEN_006 = "imagegeneration@006"
-    IMAGEGEN_005 = "imagegeneration@005"
-    IMAGEGEN_002 = "imagegeneration@002"
     GEMINI_2_5_PRO = "gemini-2.5-pro"
     GEMINI_2_5_FLASH = "gemini-2.5-flash"
     GEMINI_2_5_FLASH_IMAGE_PREVIEW = "gemini-2.5-flash-image-preview"
@@ -69,7 +58,7 @@ class GenerationModelEnum(str, Enum):
 
     # Video-Specific Models
     GEMINI_OMNI = "gemini-omni-generate-preview"
-    GEMINI_OMNI_GENERATE = "gemini-omni-generate-preview"
+    GEMINI_OMNI_GENERATE_PREVIEW = "gemini-omni-generate-preview"
     VEO_3_1_FAST_GENERATE_001 = "veo-3.1-fast-generate-001"
     VEO_3_1_LITE_GENERATE_001 = "veo-3.1-lite-generate-001"
     VEO_3_1_GENERATE_001 = "veo-3.1-generate-001"
@@ -91,6 +80,17 @@ class GenerationModelEnum(str, Enum):
 
     # Deprecated models (For old generations only, do not use)
     _DEPRECATED_VTO = "virtual-try-on-preview-08-04"
+    IMAGEN_4_001 = "imagen-4.0-generate-001"
+    IMAGEN_4_ULTRA = "imagen-4.0-ultra-generate-001"
+    IMAGEN_4_ULTRA_PREVIEW = "imagen-4.0-ultra-generate-preview-06-06"
+    IMAGEN_4_FAST = "imagen-4.0-fast-generate-001"
+    IMAGEN_4_FAST_PREVIEW = "imagen-4.0-fast-generate-preview-06-06"
+    IMAGEN_3_001 = "imagen-3.0-generate-001"
+    IMAGEN_3_FAST = "imagen-3.0-fast-generate-001"
+    IMAGEN_3_002 = "imagen-3.0-generate-002"
+    IMAGEGEN_006 = "imagegeneration@006"
+    IMAGEGEN_005 = "imagegeneration@005"
+    IMAGEGEN_002 = "imagegeneration@002"
 
     @property
     def is_gemini_image_model(self) -> bool:

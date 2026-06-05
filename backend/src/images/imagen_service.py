@@ -894,7 +894,7 @@ def _process_image_in_background(
                             upscale_dtos: list[UpscaleImagenDto] = [
                                 UpscaleImagenDto(
                                     generation_model=(
-                                        request_dto.generation_model
+                                        GenerationModelEnum.IMAGEN_4_UPSCALE_PREVIEW
                                     ),
                                     user_image=img.image.gcs_uri or "",
                                     mime_type=(

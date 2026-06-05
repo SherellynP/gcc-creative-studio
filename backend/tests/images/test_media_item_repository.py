@@ -38,7 +38,7 @@ async def test_media_repository_query_success():
         workspace_id=1,
         user_email="test@example.com",
         mime_type="image/png",
-        model="imagen-3.0-generate-001",
+        model="gemini-3.1-flash-image-preview",
         aspect_ratio="1:1",
         status="completed",
         created_at=datetime.now(),
@@ -59,7 +59,7 @@ async def test_media_repository_query_success():
         offset=0,
         user_email="test@example.com",
         mime_type=MimeTypeEnum.IMAGE_PNG,
-        model=GenerationModelEnum.IMAGEN_3_001,
+        model=GenerationModelEnum.GEMINI_3_1_FLASH_IMAGE_PREVIEW,
         status=JobStatusEnum.COMPLETED,
     )
 

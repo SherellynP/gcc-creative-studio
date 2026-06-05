@@ -52,7 +52,7 @@ export const MODEL_CONFIGS: GenerationModelConfig[] = [
   // --- Image Models ---
   {
     value: 'gemini-3.1-flash-image-preview',
-    viewValue: 'Nano Banana 2 (Preview)',
+    viewValue: 'Nano Banana 2',
     type: 'IMAGE',
     imageSrc: 'assets/images/banana-peel.png',
     isImage: true,
@@ -80,7 +80,7 @@ export const MODEL_CONFIGS: GenerationModelConfig[] = [
   },
   {
     value: 'gemini-3-pro-image-preview',
-    viewValue: 'Nano Banana Pro (Preview)',
+    viewValue: 'Nano Banana Pro',
     type: 'IMAGE',
     imageSrc: 'assets/images/banana-peel.png',
     isImage: true,
@@ -125,64 +125,7 @@ export const MODEL_CONFIGS: GenerationModelConfig[] = [
       ],
     },
   },
-  {
-    value: 'imagen-4.0-generate-001',
-    viewValue: 'Imagen 4 (deprecated)',
-    type: 'IMAGE',
-    icon: 'gemini-spark-icon',
-    isSvg: true,
-    capabilities: {
-      supportedModes: ['Text to Image'], // No ingredients support yet?
-      maxReferenceImages: 0,
-      supportedAspectRatios: ['1:1', '16:9', '9:16', '3:4', '4:3'],
-    },
-  },
-  {
-    value: 'imagen-4.0-ultra-generate-001',
-    viewValue: 'Imagen 4 Ultra (deprecated)',
-    type: 'IMAGE',
-    icon: 'gemini-spark-icon',
-    isSvg: true,
-    capabilities: {
-      supportedModes: ['Text to Image'],
-      maxReferenceImages: 0,
-      supportedAspectRatios: ['1:1', '16:9', '9:16', '3:4', '4:3'],
-    },
-  },
-  {
-    value: 'imagen-4.0-fast-generate-001',
-    viewValue: 'Imagen 4 Fast (deprecated)',
-    type: 'IMAGE',
-    icon: 'gemini-spark-icon',
-    isSvg: true,
-    capabilities: {
-      supportedModes: ['Text to Image'],
-      maxReferenceImages: 0,
-      supportedAspectRatios: ['1:1', '16:9', '9:16', '3:4', '4:3'],
-    },
-  },
-  {
-    value: 'imagen-3.0-generate-002',
-    viewValue: 'Imagen 3 (deprecated)',
-    type: 'IMAGE',
-    icon: 'auto_awesome',
-    capabilities: {
-      supportedModes: ['Text to Image', 'Ingredients to Image'],
-      maxReferenceImages: 2,
-      supportedAspectRatios: ['1:1', '16:9', '9:16', '3:4', '4:3'],
-    },
-  },
-  {
-    value: 'imagen-3.0-fast-generate-001',
-    viewValue: 'Imagen 3 Fast (deprecated)',
-    type: 'IMAGE',
-    icon: 'auto_awesome',
-    capabilities: {
-      supportedModes: ['Text to Image', 'Ingredients to Image'],
-      maxReferenceImages: 2,
-      supportedAspectRatios: ['1:1', '16:9', '9:16', '3:4', '4:3'],
-    },
-  },
+
   // --- Text Models ---
   {
     value: 'gemini-2.5-pro',
@@ -235,7 +178,7 @@ export const MODEL_CONFIGS: GenerationModelConfig[] = [
   // --- Video Models ---
   {
     value: 'gemini-omni-generate-preview',
-    viewValue: 'Gemini Omni \n (Multi-Modal Reference)',
+    viewValue: 'Gemini Omni \n (Early Access Preview)',
     type: 'VIDEO',
     icon: 'layers',
     capabilities: {
