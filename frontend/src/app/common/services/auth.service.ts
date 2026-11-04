@@ -202,27 +202,26 @@ export class AuthService {
       }, 15000);
 
       try {
-        if (!(window as any).google_initialized) {
-          google.accounts.id.initialize({
-            client_id: GOOGLE_CLIENT_ID,
-            use_fedcm: false, // <--- Bypasses Chrome's FedCM AbortError
-            callback: (response: any) => {
-              clearTimeout(loginTimeout);
-              const idToken = response.credential;
-              if (idToken) {
-                observer.next(idToken);
-                observer.complete();
-              } else {
-                observer.error(
-                  new Error(
-                    'Google Sign-In response did not contain a credential.',
-                  ),
-                );
-              }
-            },
-          } as any); // <--- ADD "as any" HERE to bypass the TypeScript type error!
-          (window as any).google_initialized = true;
-        }
+        // We removed the window.google_initialized guard so the callback registers successfully every time!
+        google.accounts.id.initialize({
+          client_id: GOOGLE_CLIENT_ID,
+          use_fedcm: false, // <--- Bypasses Chrome's FedCM AbortError completely
+          callback: (response: any) => {
+            clearTimeout(loginTimeout);
+            const idToken = response.credential;
+            if (idToken) {
+              observer.next(idToken);
+              observer.complete();
+            } else {
+              observer.error(
+                new Error(
+                  'Google Sign-In response did not contain a credential.',
+                ),
+              );
+            }
+          },
+        } as any); // <--- Bypasses the TypeScript compile error
+
 
 
         // Trigger the One Tap prompt.
