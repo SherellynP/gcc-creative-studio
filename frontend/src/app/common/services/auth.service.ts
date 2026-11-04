@@ -222,8 +222,6 @@ export class AuthService {
           },
         } as any); // <--- Bypasses the TypeScript compile error
 
-
-
         // Trigger the One Tap prompt.
         // Per new docs, we don't use the notification object for flow control.
         google.accounts.id.prompt();
