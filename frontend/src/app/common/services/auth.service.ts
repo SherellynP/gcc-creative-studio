@@ -202,23 +202,28 @@ export class AuthService {
       }, 15000);
 
       try {
-        google.accounts.id.initialize({
-          client_id: GOOGLE_CLIENT_ID,
-          callback: (response: any) => {
-            clearTimeout(loginTimeout);
-            const idToken = response.credential;
-            if (idToken) {
-              observer.next(idToken);
-              observer.complete();
-            } else {
-              observer.error(
-                new Error(
-                  'Google Sign-In response did not contain a credential.',
-                ),
-              );
-            }
-          },
-        });
+        if (!(window as any).google_initialized) {
+          google.accounts.id.initialize({
+            client_id: GOOGLE_CLIENT_ID,
+            use_fedcm: false, // <--- 1. Bypasses Chrome's FedCM AbortError completely
+            callback: (response: any) => {
+              clearTimeout(loginTimeout);
+              const idToken = response.credential;
+              if (idToken) {
+                observer.next(idToken);
+                observer.complete();
+              } else {
+                observer.error(
+                  new Error(
+                    'Google Sign-In response did not contain a credential.',
+                  ),
+                );
+              }
+            },
+          });
+          (window as any).google_initialized = true; // <--- 2. Guard to prevent double initialization
+        }
+
 
         // Trigger the One Tap prompt.
         // Per new docs, we don't use the notification object for flow control.
