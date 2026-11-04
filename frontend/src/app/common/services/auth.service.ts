@@ -205,7 +205,7 @@ export class AuthService {
         if (!(window as any).google_initialized) {
           google.accounts.id.initialize({
             client_id: GOOGLE_CLIENT_ID,
-            use_fedcm: false, // <--- 1. Bypasses Chrome's FedCM AbortError completely
+            use_fedcm: false, // <--- Bypasses Chrome's FedCM AbortError
             callback: (response: any) => {
               clearTimeout(loginTimeout);
               const idToken = response.credential;
@@ -220,8 +220,8 @@ export class AuthService {
                 );
               }
             },
-          });
-          (window as any).google_initialized = true; // <--- 2. Guard to prevent double initialization
+          } as any); // <--- ADD "as any" HERE to bypass the TypeScript type error!
+          (window as any).google_initialized = true;
         }
 
 
