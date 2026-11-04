@@ -216,7 +216,7 @@ class WorkerDatabase:
                     user=config_service.DB_USER,
                     password=config_service.DB_PASS,
                     db=config_service.DB_NAME,
-                    ip_type=IPTypes.PRIVATE,
+                    ip_type=IPTypes.PUBLIC,
                 )
 
             self.engine = create_async_engine(
