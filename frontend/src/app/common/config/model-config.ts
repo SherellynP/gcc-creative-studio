@@ -135,13 +135,18 @@ export const MODEL_CONFIGS: GenerationModelConfig[] = [
         '4:5',
         '5:4',
         '21:9',
-      ], // All
+        '1:4',
+        '4:1',
+        '1:8',
+        '8:1',
+      ], // Set to match Nano Banana 2
       supportedResolutions: ['1K', '2K', '4K'],
       supportedDurations: [],
       supportsGoogleSearch: true,
       supportsVideoReference: true,
     },
   },
+
   {
     value: 'gemini-2.5-flash-image',
     viewValue: 'Nano Banana',
@@ -162,12 +167,17 @@ export const MODEL_CONFIGS: GenerationModelConfig[] = [
         '4:5',
         '5:4',
         '21:9',
-      ],
+        '1:4',
+        '4:1',
+        '1:8',
+        '8:1',
+      ], // Set to match Nano Banana 2
       supportedResolutions: ['1K', '2K', '4K'],
       supportedDurations: [],
       supportsVideoReference: true,
     },
   },
+
 
   // --- Text Models ---
   {
